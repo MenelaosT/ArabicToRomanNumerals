@@ -72,9 +72,9 @@ class RomanNumeralsDictionary(object):
         print (">> Increment %s numeral to correspond to number %s") % (flag, x*pow(10,n))
         while True:
             lt = raw_input(">> Insert a capital letter (A-Z):... ")         
-            if len(lt) != 1 : print "<> Input must be single string! <>" ; continue
-            if (ord(lt) not in range(65,91)): print "<> Input must be a capital letter! <>"; continue
-            if (lt in aDict['order']) or (lt in aDict['mid']) : print "<> The letter is taken! <>"; continue
+            if len(lt) != 1 : print ("<> Input must be single string! <>") ; continue
+            if (ord(lt) not in range(65,91)): print ("<> Input must be a capital letter! <>"); continue
+            if (lt in aDict['order']) or (lt in aDict['mid']) : print ("<> The letter is taken! <>"); continue
             break
         return lt
     
@@ -155,7 +155,7 @@ class ArabicToRomanNumerals( RomanNumeralsDictionary ):
         
         while number:
             val.append(number % 10)
-            number = number /10
+            number = int(number /10)
         
         while index < len(val):            
             base = self.__theDict['order'][index]                  

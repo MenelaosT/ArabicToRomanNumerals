@@ -81,7 +81,7 @@ class testArabicToRomanNumerals(unittest.TestCase):
                 google_absolute_truth = urllib2.urlopen(url).read().decode("utf-8", "ignore")
                 google_absolute_truth = re.sub("([a-z]+):", '"\\1" :', google_absolute_truth)
                 google_absolute_truth = json.loads(google_absolute_truth)
-                print num , test_result, google_absolute_truth["rhs"]
+                print(num , test_result, google_absolute_truth["rhs"])
                 self.assertEqual(test_result, google_absolute_truth["rhs"])
                 i+=1  
     

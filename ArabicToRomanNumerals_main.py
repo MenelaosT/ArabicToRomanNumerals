@@ -28,22 +28,22 @@ def main():
     try:
         opts, args = getopt.gnu_getopt(sys.argv[1:], "hi", ["help",
                                                              "interactive_extend"])
-    except getopt.error, msg:
-        print msg
-        print "for help use --help"
+    except getopt.error as msg:
+        print(msg)
+        print ("for help use --help")
         sys.exit(2)
     #process options
     auto = True
     for o, a in opts:
         if o in ("-h","--help"):
-            print __doc__
+            print(__doc__)
             sys.exit(0)
         elif o in ("-i","--interactive_extend"):
             auto = False
             print ("Will apply interactive extend.")
         else:
             print ("Provide some input!")
-            print __doc__
+            print(__doc__)
             
     #work with arguments
     atr = ArabicToRomanNumerals()
@@ -57,17 +57,17 @@ def main():
                 break
             except ValueError:
                 print ("Argument %s, cannot be transformed to integer. Input must be integers. Replace!") % (arg)
-                print "==================="
+                print ("===================")
                 arg = raw_input("Type (h)elp, (s)kip or (e)xit for the obvious, or enter an integer:...") 
                 while arg in ("h","help"):
-                    print __doc__
+                    print(__doc__)
                     arg = raw_input("Type (h)elp, (s)kip or (e)xit for the obivous, or enter an integer:...")
                 if arg in ("s", "skip"): break
                 if arg in ("e","exit"): sys.exit(0)
                 
-    print output    
-    print " ----------------\n Dictionary info:\n ----------------"
-    print atr.info
+    print(output)    
+    print(" ----------------\n Dictionary info:\n ----------------")
+    print(atr.info)
     
 if __name__=="__main__":
     sys.exit(main())
